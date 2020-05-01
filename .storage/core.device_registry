@@ -1,0 +1,48 @@
+{
+    "data": {
+        "devices": [
+            {
+                "area_id": "58636765459f499d9326fcee8ae5924c",
+                "config_entries": [
+                    "6a52f0ff04f1464da86b5f5ab174fe23"
+                ],
+                "connections": [],
+                "id": "03aec633ef7a4fc8858c52a1358be135",
+                "identifiers": [
+                    [
+                        "cast",
+                        "01e1f292cc9645303eef77ccbf339324"
+                    ]
+                ],
+                "manufacturer": "Unknown manufacturer",
+                "model": "BRAVIA 4K GB",
+                "name": "Tiv\u00f9 soggiorno",
+                "name_by_user": null,
+                "sw_version": null,
+                "via_device_id": null
+            },
+            {
+                "area_id": null,
+                "config_entries": [
+                    "d1667660c99a42b6bec84aab37f6edcb"
+                ],
+                "connections": [],
+                "id": "af42a1fa1a2d44d38e05002ff5478397",
+                "identifiers": [
+                    [
+                        "hacs",
+                        "0717a0cd-745c-48fd-9b16-c8534c9704f9-bc944b0f-fd42-4a58-a072-ade38d1444cd"
+                    ]
+                ],
+                "manufacturer": "hacs.xyz",
+                "model": "",
+                "name": "HACS",
+                "name_by_user": null,
+                "sw_version": "0.24.3",
+                "via_device_id": null
+            }
+        ]
+    },
+    "key": "core.device_registry",
+    "version": 1
+}

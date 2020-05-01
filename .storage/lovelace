@@ -1,0 +1,109 @@
+{
+    "data": {
+        "config": {
+            "title": "Casa",
+            "views": [
+                {
+                    "badges": [
+                        {
+                            "entity": "binary_sensor.updater"
+                        },
+                        {
+                            "entity": "person.antonello"
+                        },
+                        {
+                            "entity": "sun.sun"
+                        }
+                    ],
+                    "cards": [
+                        {
+                            "entities": [
+                                "switch.04564850840d8e9bb04b",
+                                "switch.20856001cc50e3d2a7d9"
+                            ],
+                            "show_header_toggle": false,
+                            "title": "Prese",
+                            "type": "entities"
+                        },
+                        {
+                            "entity": "weather.casa",
+                            "type": "weather-forecast"
+                        },
+                        {
+                            "entity": "climate.melcloud_mansarda_208372",
+                            "name": "Condizionatore",
+                            "type": "entity"
+                        },
+                        {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.onvif_camera",
+                            "entities": [],
+                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
+                            "title": "Ingresso",
+                            "type": "picture-glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.disimpegno_temperatura",
+                                    "name": "Disimpegno"
+                                },
+                                {
+                                    "entity": "sensor.mi_t_582d34352e68",
+                                    "name": "Mansarda"
+                                },
+                                {
+                                    "entity": "sensor.mi_t_80eaca88f922",
+                                    "name": "Dreizel"
+                                },
+                                {
+                                    "entity": "sensor.mi_t_e72e00b1c880",
+                                    "name": "Salotto"
+                                },
+                                {
+                                    "entity": "sensor.mi_t_e72e00d2bc9f",
+                                    "name": "Camera"
+                                },
+                                {
+                                    "entity": "sensor.mi_t_a4c1380ae1e2",
+                                    "name": "Ingresso"
+                                },
+                                {
+                                    "entity": "sensor.mi_t_a4c138588693",
+                                    "name": "Cameretta"
+                                },
+                                {
+                                    "entity": "sensor.mi_t_a4c1381a39b2",
+                                    "name": "Sala Pranzo"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
+                            "type": "history-graph"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.abb_produzione",
+                                    "name": "Produzione"
+                                },
+                                {
+                                    "entity": "sensor.termo_current_consumption",
+                                    "name": "TD"
+                                }
+                            ],
+                            "hours_to_show": 24,
+                            "refresh_interval": 0,
+                            "title": "Produzione vs Consumo",
+                            "type": "history-graph"
+                        }
+                    ],
+                    "path": "default_view",
+                    "title": "Home"
+                }
+            ]
+        }
+    },
+    "key": "lovelace",
+    "version": 1
+}

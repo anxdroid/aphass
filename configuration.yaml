@@ -1,0 +1,340 @@
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+
+frontend:
+  extra_html_url:
+  - /local/custom_ui/state-card-floorplan.html
+panel_custom:
+  - name: floorplan
+    sidebar_title: Floorplan
+    sidebar_icon: mdi:home
+    url_path: floorplan
+    config: !include floorplan.yaml
+
+# Uncomment this if you are using SSL/TLS, running in Docker container, etc.
+# http:
+#   base_url: example.duckdns.org:8123
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml
+scene: !include scenes.yaml
+mobile_app:
+
+#http:
+#  ssl_certificate: /etc/letsencrypt/live/examplehome.duckdns.org/fullchain.pem
+#  ssl_key: /etc/letsencrypt/live/examplehome.duckdns.org/privkey.pem
+#  base_url: antopaoletti.ddns.net
+
+logger:
+  default: info
+  logs:
+    homeassistant.components.device_tracker: critical
+    homeassistant.components.camera: critical
+    custom_components.mitemp_bt: info
+    custom_components.localtuya: debug
+    homeassistant.components.rest: debug
+
+recorder:
+  db_url: mysql://hass:pwd4hass@localhost/hass
+
+modbus:
+  - type: tcp
+    host: 192.168.1.32
+    port: 502
+    name: abb
+    timeout: 100
+
+switch:
+  - platform: localtuya
+    host: 192.168.1.81
+    local_key: 68a760c04fd5ce1f
+    device_id: 04564850840d8e9bb04b
+    switches:
+      switch1:
+        friendly_name: plug_cdz
+        id: 1
+  - platform: localtuya
+    host: 192.168.1.82
+    local_key: 60ef17b549d76787
+    device_id: 20856001cc50e3d2a7d9
+    switches:
+      switch1:
+        friendly_name: plug_termo
+        id: 1
+
+tuya:
+  username: paoletti.antonello@gmail.com
+  password: Thejedi2016
+  country_code: 39
+  platform: smart_life
+
+homeassistant:
+  customize:    
+    binary_sensor.floorplan:
+      custom_ui_state_card: state-card-floorplan
+      config: !include floorplan.yaml
+
+mqtt:
+  broker: 192.168.1.9
+  username: hass
+  password: pwd4hass
+
+camera:
+  - platform: onvif
+    host: 192.168.1.151
+    port: 8080
+
+climate:
+  - platform: melcloud
+    email: paoletti.antonello@gmail.com
+    password: Thejedi2016
+
+binary_sensor:
+  - platform: mqtt
+    state_topic: dummy/floorplan/sensor
+    name: Floorplan
+  - platform: template
+    sensors:
+      bt_stuck:
+        friendly_name: "BT"
+        value_template: >-
+          {% set btvalues = [
+            states.sensor.mi_t_1.last_updated,
+            states.sensor.mi_t_2.last_updated,
+            states.sensor.mi_h_1.last_updated,
+            states.sensor.mi_h_2.last_updated]%}
+          {{ (as_timestamp(now())-as_timestamp(btvalues | max)) > 120 }}
+        device_class: problem
+        icon_template: >-
+          {% if is_state("binary_sensor.bt_stuck", "on") %}
+            mdi:bluetooth-off
+          {% else %}
+            mdi:bluetooth
+          {% endif %}
+
+sensor:
+  - platform: template
+    sensors:
+      cdz_voltage:
+        value_template: >-
+          {{ states.switch.plug_cdz.attributes.voltage }}
+        unit_of_measurement: 'V' 
+      cdz_current:
+        value_template: >-     
+          {{ states.switch.plug_cdz.attributes.current }}
+        unit_of_measurement: 'mA'      
+      cdz_current_consumption:
+        value_template: >-
+          {{ states.switch.plug_cdz.attributes.current_consumption }}
+        unit_of_measurement: 'W'
+      termo_voltage:
+        value_template: >-
+          {{ states.switch.plug_termo.attributes.voltage }}
+        unit_of_measurement: 'V' 
+      termo_current:
+        value_template: >-     
+          {{ states.switch.plug_termo.attributes.current }}
+        unit_of_measurement: 'mA'      
+      termo_current_consumption:
+        value_template: >-
+          {{ states.switch.plug_termo.attributes.current_consumption }}
+        unit_of_measurement: 'W'
+  # - platform: mqtt
+  #   name: termostato_temperature
+  #   state_topic: "/bticino/07794ca1-8f3f-1333-e053-20182d0a0045/status"
+  #   unit_of_measurement: '°C'
+  #   value_template: "{{ value_json.temperature }}"
+  # - platform: mqtt
+  #   name: termostato_humidity
+  #   state_topic: "/bticino/07794ca1-8f3f-1333-e053-20182d0a0045/status"
+  #   unit_of_measurement: '%'
+  #   value_template: "{{ value_json.humidity }}"
+  # - platform: mqtt
+  #   name: termostato_function
+  #   state_topic: "/bticino/07794ca1-8f3f-1333-e053-20182d0a0045/status"
+  #   value_template: "{{ value_json.function }}"
+  # - platform: mqtt
+  #   name: termostato_state
+  #   state_topic: "/bticino/07794ca1-8f3f-1333-e053-20182d0a0045/status"
+  #   value_template: "{{ value_json.state }}"
+  # - platform: mqtt    
+  #   name: termostato_mode
+  #   state_topic: "/bticino/07794ca1-8f3f-1333-e053-20182d0a0045/status"
+  #   value_template: "{{ value_json.mode }}"
+  - platform: rest
+    #resource: https://api.developer.legrand.com/smarther/v2.0/chronothermostat/thermoregulation/addressLocation/plants/04794ca1-c290-0f33-e053-20182d0a512d/modules/parameter/id/value/07794ca1-8f3f-1333-e053-20182d0a0045
+    resource: http://localhost/bticino.php
+    #headers:
+    #  Ocp-Apim-Subscription-Key: "0a69696989eb4fd2b9834683bf7114e6"
+    #  Authorization: !secret bticino_token 
+    name: disimpegno
+    json_attributes:
+      - "temp"
+      - "umid"
+    #value_template: '{{ value_json.chronothermostats[0].thermometer.measures[0].value }}'
+    scan_interval: 300
+    #unit_of_measurement: "°C"
+  - platform: template
+    sensors:
+      disimpegno_temperatura:
+        friendly_name: Temp Disimpegno
+        value_template: '{{ states.sensor.disimpegno.attributes["temp"] }}'
+        device_class: temperature
+        unit_of_measurement: '°C'
+      disimpegno_umidita:
+        friendly_name: Umidità Disimpegno
+        value_template: '{{ states.sensor.disimpegno.attributes["umid"] }}'
+        device_class: humidity
+        unit_of_measurement: '%'
+  - platform: modbus
+    registers:
+      - name: ABB Produzione
+        hub: abb
+        unit_of_measurement: W
+        slave: 2
+        register: 84
+        register_type: holding
+      - name: ABB Tensione
+        unit_of_measurement: V
+        hub: abb
+        slave: 2
+        register: 80
+        register_type: holding
+        scale: 0.1
+      #- name: ABB Output Amp
+      #  unit_of_measurement: A
+      #  hub: abb
+      #  slave: 2
+      #  register: 73
+      #  register_type: holding
+      #  scale: 0.1
+      #  precision: 1
+      #- name: ABB Lato DC Output
+      #  unit_of_measurement: W
+      #  hub: abb
+      #  slave: 2
+      #  register: 101
+      #  register_type: holding
+      #  scale: 10
+      #- name: ABB Totale
+      #  unit_of_measurement: KWh
+      #  hub: abb
+      #  slave: 2
+      #  register: 187
+      #  register_type: holding
+      #  count: 4
+      #  scale: 0.001
+      #  precision: 2
+      #- name: ABB String 1 Output
+      #  unit_of_measurement: W
+      #  hub: abb
+      #  slave: 2
+      #  register: 1125
+      #  register_type: holding
+      #  scale: 10
+      #  data_type: uint
+      #- name: ABB String 1 Volt
+      #  unit_of_measurement: V
+      #  hub: abb
+      #  slave: 2
+      #  register: 1124
+      #  register_type: holding
+      #  scale: 0.1
+      #  data_type: uint
+      #- name: ABB String 1 Amp
+      #  unit_of_measurement: A
+      #   hub: abb
+      #   slave: 2
+      #   register: 1123
+      #   register_type: holding
+      #   scale: 0.1
+      #   precision: 1
+      # - name: ABB String 2 Output
+      #   unit_of_measurement: W
+      #   hub: abb
+      #   slave: 2
+      #   register: 1145
+      #   register_type: holding
+      #   scale: 10
+      #   data_type: uint
+      # - name: ABB String 2 Volt
+      #   unit_of_measurement: V
+      #   hub: abb
+      #   slave: 2
+      #   register: 1144
+      #   register_type: holding
+      #   scale: 0.1
+      #   data_type: uint
+      # - name: ABB String 2 Amp
+      #   unit_of_measurement: A
+      #   hub: abb
+      #   slave: 2
+      #   register: 1143
+      #   register_type: holding
+      #   scale: 0.1
+      #   precision: 1
+      # - name: ABB Probe Sys
+      #   unit_of_measurement: °C
+      #   hub: abb
+      #   slave: 2
+      #   register: 103
+      #   register_type: holding
+      #   scale: 0.1
+      #   precision: 1
+      # - name: ABB Probe AC
+      #   unit_of_measurement: °C
+      #   hub: abb
+      #   slave: 2
+      #   register: 104
+      #   register_type: holding
+      #   scale: 0.1
+      #   precision: 1
+      # - name: ABB Probe DC
+      #   unit_of_measurement: °C
+      #   hub: abb
+      #   slave: 2
+      #   register: 106
+      #   register_type: holding
+      #   scale: 0.1
+      #   precision: 1
+  #- platform: miflora
+  #  mac: "80:EA:CA:88:F9:22"
+  #  name: Dreizel
+  #  force_update: true
+  #  median: 3
+  #  go_unavailable_timeout: 43200
+  #  monitored_conditions:
+  #    - moisture
+  #    - light
+  #    - temperature
+  #    - conductivity
+  #    - battery
+  - platform: mitemp_bt
+    #mac: "58:2D:34:35:2E:68"
+    #name: Mansarda
+    #force_update: true
+    #median: 1
+    #monitored_conditions:
+    #  - temperature
+    #  - humidity
+    #  - battery
+    #rounding: True
+    #decimals: 1
+    #period: 120
+    #log_spikes: False
+    #use_median: False
+    active_scan: False
+    hci_interface: 0
+    batt_entities: True
+    encryptors:
+      'A4:C1:38:0A:E1:E2': '5868562bd0b3a94ff617345284f892c4'
+      'A4:C1:38:58:86:93': '9863da9a14670a02e64a6e64740ac2ac'
+      'A4:C1:38:1A:39:B2': 'e751c54332dca9b1f96660380bd77fc3'
+    #  'A4:C1:38:2F:86:6C': '217C568CF5D22808DA20181502D84C1B'
+    #report_unknown: True

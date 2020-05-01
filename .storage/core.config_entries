@@ -1,0 +1,74 @@
+{
+    "data": {
+        "entries": [
+            {
+                "connection_class": "cloud_poll",
+                "data": {
+                    "track_home": true
+                },
+                "domain": "met",
+                "entry_id": "613a641f4d244da49293e63a7e9501f2",
+                "options": {},
+                "source": "onboarding",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Home",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {
+                    "user_id": "4c02555958b14f5f8b193faa319f124c"
+                },
+                "domain": "cast",
+                "entry_id": "6a52f0ff04f1464da86b5f5ab174fe23",
+                "options": {},
+                "source": "zeroconf",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "Google Cast",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "cloud_poll",
+                "data": {
+                    "appdaemon": false,
+                    "netdaemon": false,
+                    "sidepanel_icon": "mdi:alpha-c-box",
+                    "sidepanel_title": "HACS",
+                    "token": "ca0805a73e4589e88753b7d5081a37a3877224b3"
+                },
+                "domain": "hacs",
+                "entry_id": "d1667660c99a42b6bec84aab37f6edcb",
+                "options": {},
+                "source": "user",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "",
+                "unique_id": null,
+                "version": 1
+            },
+            {
+                "connection_class": "local_push",
+                "data": {},
+                "domain": "mqtt",
+                "entry_id": "86d642f66af3493f9c279c3024c6b0ba",
+                "options": {},
+                "source": "import",
+                "system_options": {
+                    "disable_new_entities": false
+                },
+                "title": "configuration.yaml",
+                "unique_id": null,
+                "version": 1
+            }
+        ]
+    },
+    "key": "core.config_entries",
+    "version": 1
+}

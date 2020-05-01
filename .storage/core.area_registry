@@ -1,0 +1,24 @@
+{
+    "data": {
+        "areas": [
+            {
+                "id": "58636765459f499d9326fcee8ae5924c",
+                "name": "Soggiorno"
+            },
+            {
+                "id": "0b6176a1e1ee453c9e5f3637bb1a8ce1",
+                "name": "Cucina"
+            },
+            {
+                "id": "c78538ba1a554e1e9f6ad2fabe20e1ec",
+                "name": "Camera da letto"
+            },
+            {
+                "id": "1169a291f24a4a5287a87536abc0701a",
+                "name": "Zones"
+            }
+        ]
+    },
+    "key": "core.area_registry",
+    "version": 1
+}
