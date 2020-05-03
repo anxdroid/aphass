@@ -5,6 +5,11 @@ default_config:
 frontend:
   extra_html_url:
   - /local/custom_ui/state-card-floorplan.html
+  - /home/pi/homeassistant/dropbox
+
+#folder_watcher:
+#  - folder: /home/pi/homeassistant/dropbox
+
 panel_custom:
   - name: floorplan
     sidebar_title: Floorplan
@@ -30,6 +35,16 @@ mobile_app:
 #  ssl_certificate: /etc/letsencrypt/live/examplehome.duckdns.org/fullchain.pem
 #  ssl_key: /etc/letsencrypt/live/examplehome.duckdns.org/privkey.pem
 #  base_url: antopaoletti.ddns.net
+telegram_bot:
+  - platform: polling
+    api_key: 738992030:AAHcuMiGmx8stdyy6bVkKWCIB5-JHjdgd9M
+    allowed_chat_ids:
+      - -205991625
+
+notify:
+  - name: hass
+    platform: telegram
+    chat_id: -205991625
 
 logger:
   default: info
@@ -79,6 +94,8 @@ homeassistant:
     binary_sensor.floorplan:
       custom_ui_state_card: state-card-floorplan
       config: !include floorplan.yaml
+  whitelist_external_dirs:
+    - /tmp
 
 mqtt:
   broker: 192.168.1.9
@@ -101,6 +118,10 @@ binary_sensor:
     name: Floorplan
   - platform: template
     sensors:
+      stato_ups_salotto:
+        friendly_name: "Stato UPS"
+        device_class: power
+        value_template: '{{ states.sensor.apc.attributes["status"] }}'
       bt_stuck:
         friendly_name: "BT"
         value_template: >-
@@ -119,79 +140,21 @@ binary_sensor:
           {% endif %}
 
 sensor:
-  - platform: template
-    sensors:
-      cdz_voltage:
-        value_template: >-
-          {{ states.switch.plug_cdz.attributes.voltage }}
-        unit_of_measurement: 'V' 
-      cdz_current:
-        value_template: >-     
-          {{ states.switch.plug_cdz.attributes.current }}
-        unit_of_measurement: 'mA'      
-      cdz_current_consumption:
-        value_template: >-
-          {{ states.switch.plug_cdz.attributes.current_consumption }}
-        unit_of_measurement: 'W'
-      termo_voltage:
-        value_template: >-
-          {{ states.switch.plug_termo.attributes.voltage }}
-        unit_of_measurement: 'V' 
-      termo_current:
-        value_template: >-     
-          {{ states.switch.plug_termo.attributes.current }}
-        unit_of_measurement: 'mA'      
-      termo_current_consumption:
-        value_template: >-
-          {{ states.switch.plug_termo.attributes.current_consumption }}
-        unit_of_measurement: 'W'
-  # - platform: mqtt
-  #   name: termostato_temperature
-  #   state_topic: "/bticino/07794ca1-8f3f-1333-e053-20182d0a0045/status"
-  #   unit_of_measurement: '°C'
-  #   value_template: "{{ value_json.temperature }}"
-  # - platform: mqtt
-  #   name: termostato_humidity
-  #   state_topic: "/bticino/07794ca1-8f3f-1333-e053-20182d0a0045/status"
-  #   unit_of_measurement: '%'
-  #   value_template: "{{ value_json.humidity }}"
-  # - platform: mqtt
-  #   name: termostato_function
-  #   state_topic: "/bticino/07794ca1-8f3f-1333-e053-20182d0a0045/status"
-  #   value_template: "{{ value_json.function }}"
-  # - platform: mqtt
-  #   name: termostato_state
-  #   state_topic: "/bticino/07794ca1-8f3f-1333-e053-20182d0a0045/status"
-  #   value_template: "{{ value_json.state }}"
-  # - platform: mqtt    
-  #   name: termostato_mode
-  #   state_topic: "/bticino/07794ca1-8f3f-1333-e053-20182d0a0045/status"
-  #   value_template: "{{ value_json.mode }}"
   - platform: rest
-    #resource: https://api.developer.legrand.com/smarther/v2.0/chronothermostat/thermoregulation/addressLocation/plants/04794ca1-c290-0f33-e053-20182d0a512d/modules/parameter/id/value/07794ca1-8f3f-1333-e053-20182d0a0045
+    resource: http://192.168.1.3/apc.php
+    name: apc
+    json_attributes:
+      - "bcharge"
+      - "timeleft"
+      - "status"
+    scan_interval: 300
+  - platform: rest
     resource: http://localhost/bticino.php
-    #headers:
-    #  Ocp-Apim-Subscription-Key: "0a69696989eb4fd2b9834683bf7114e6"
-    #  Authorization: !secret bticino_token 
     name: disimpegno
     json_attributes:
       - "temp"
       - "umid"
-    #value_template: '{{ value_json.chronothermostats[0].thermometer.measures[0].value }}'
     scan_interval: 300
-    #unit_of_measurement: "°C"
-  - platform: template
-    sensors:
-      disimpegno_temperatura:
-        friendly_name: Temp Disimpegno
-        value_template: '{{ states.sensor.disimpegno.attributes["temp"] }}'
-        device_class: temperature
-        unit_of_measurement: '°C'
-      disimpegno_umidita:
-        friendly_name: Umidità Disimpegno
-        value_template: '{{ states.sensor.disimpegno.attributes["umid"] }}'
-        device_class: humidity
-        unit_of_measurement: '%'
   - platform: modbus
     registers:
       - name: ABB Produzione
@@ -303,32 +266,7 @@ sensor:
       #   register_type: holding
       #   scale: 0.1
       #   precision: 1
-  #- platform: miflora
-  #  mac: "80:EA:CA:88:F9:22"
-  #  name: Dreizel
-  #  force_update: true
-  #  median: 3
-  #  go_unavailable_timeout: 43200
-  #  monitored_conditions:
-  #    - moisture
-  #    - light
-  #    - temperature
-  #    - conductivity
-  #    - battery
   - platform: mitemp_bt
-    #mac: "58:2D:34:35:2E:68"
-    #name: Mansarda
-    #force_update: true
-    #median: 1
-    #monitored_conditions:
-    #  - temperature
-    #  - humidity
-    #  - battery
-    #rounding: True
-    #decimals: 1
-    #period: 120
-    #log_spikes: False
-    #use_median: False
     active_scan: False
     hci_interface: 0
     batt_entities: True
@@ -336,5 +274,45 @@ sensor:
       'A4:C1:38:0A:E1:E2': '5868562bd0b3a94ff617345284f892c4'
       'A4:C1:38:58:86:93': '9863da9a14670a02e64a6e64740ac2ac'
       'A4:C1:38:1A:39:B2': 'e751c54332dca9b1f96660380bd77fc3'
-    #  'A4:C1:38:2F:86:6C': '217C568CF5D22808DA20181502D84C1B'
     #report_unknown: True
+  - platform: template
+    sensors:
+      disimpegno_temperatura:
+        friendly_name: Temp Disimpegno
+        value_template: '{{ states.sensor.disimpegno.attributes["temp"] }}'
+        device_class: temperature
+        unit_of_measurement: '°C'
+      disimpegno_umidita:
+        friendly_name: Umidità Disimpegno
+        value_template: '{{ states.sensor.disimpegno.attributes["umid"] }}'
+        device_class: humidity
+        unit_of_measurement: '%'
+      cdz_voltage:
+        value_template: >-
+          {{ states.switch.plug_cdz.attributes.voltage }}
+        unit_of_measurement: 'V' 
+      cdz_current:
+        value_template: >-     
+          {{ states.switch.plug_cdz.attributes.current }}
+        unit_of_measurement: 'mA'      
+      cdz_current_consumption:
+        value_template: >-
+          {{ states.switch.plug_cdz.attributes.current_consumption }}
+        unit_of_measurement: 'W'
+      termo_voltage:
+        value_template: >-
+          {{ states.switch.plug_termo.attributes.voltage }}
+        unit_of_measurement: 'V' 
+      termo_current:
+        value_template: >-     
+          {{ states.switch.plug_termo.attributes.current }}
+        unit_of_measurement: 'mA'      
+      termo_current_consumption:
+        value_template: >-
+          {{ states.switch.plug_termo.attributes.current_consumption }}
+        unit_of_measurement: 'W'
+      carica_ups_salotto:
+        friendly_name: Carica UPS
+        value_template: '{{ states.sensor.apc.attributes["bcharge"] }}'
+        device_class: battery
+        unit_of_measurement: '%'

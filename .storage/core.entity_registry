@@ -185,7 +185,7 @@
                 "disabled_by": null,
                 "entity_id": "sensor.mi_l_80eaca88f922",
                 "icon": null,
-                "name": null,
+                "name": "Luce Dreizel",
                 "original_icon": "mdi:white-balance-sunny",
                 "original_name": "mi l_80EACA88F922",
                 "platform": "mitemp_bt",
@@ -306,14 +306,14 @@
                 "unit_of_measurement": "%"
             },
             {
-                "capabilities": null,
+                "capabilities": {},
                 "config_entry_id": null,
                 "device_class": "temperature",
                 "device_id": null,
                 "disabled_by": null,
                 "entity_id": "sensor.mi_t_a4c1380ae1e2",
                 "icon": null,
-                "name": "Temp Ingresso",
+                "name": "Temp Terrazzo Interno",
                 "original_icon": null,
                 "original_name": "mi t_A4C1380AE1E2",
                 "platform": "mitemp_bt",
@@ -322,14 +322,14 @@
                 "unit_of_measurement": "\u00b0C"
             },
             {
-                "capabilities": null,
+                "capabilities": {},
                 "config_entry_id": null,
                 "device_class": "humidity",
                 "device_id": null,
                 "disabled_by": null,
                 "entity_id": "sensor.mi_h_a4c1380ae1e2",
                 "icon": null,
-                "name": "Umid Ingresso",
+                "name": "Umid Terrazzo Interno",
                 "original_icon": null,
                 "original_name": "mi h_A4C1380AE1E2",
                 "platform": "mitemp_bt",
@@ -338,7 +338,7 @@
                 "unit_of_measurement": "%"
             },
             {
-                "capabilities": null,
+                "capabilities": {},
                 "config_entry_id": null,
                 "device_class": "battery",
                 "device_id": null,
@@ -354,7 +354,7 @@
                 "unit_of_measurement": "%"
             },
             {
-                "capabilities": null,
+                "capabilities": {},
                 "config_entry_id": null,
                 "device_class": "temperature",
                 "device_id": null,
@@ -370,7 +370,7 @@
                 "unit_of_measurement": "\u00b0C"
             },
             {
-                "capabilities": null,
+                "capabilities": {},
                 "config_entry_id": null,
                 "device_class": "humidity",
                 "device_id": null,
@@ -386,7 +386,7 @@
                 "unit_of_measurement": "%"
             },
             {
-                "capabilities": null,
+                "capabilities": {},
                 "config_entry_id": null,
                 "device_class": "battery",
                 "device_id": null,
@@ -402,7 +402,7 @@
                 "unit_of_measurement": "%"
             },
             {
-                "capabilities": null,
+                "capabilities": {},
                 "config_entry_id": null,
                 "device_class": "temperature",
                 "device_id": null,
@@ -418,7 +418,7 @@
                 "unit_of_measurement": "\u00b0C"
             },
             {
-                "capabilities": null,
+                "capabilities": {},
                 "config_entry_id": null,
                 "device_class": "humidity",
                 "device_id": null,
@@ -434,7 +434,7 @@
                 "unit_of_measurement": "%"
             },
             {
-                "capabilities": null,
+                "capabilities": {},
                 "config_entry_id": null,
                 "device_class": "battery",
                 "device_id": null,
@@ -448,6 +448,134 @@
                 "supported_features": 0,
                 "unique_id": "batt_A4C1381A39B2",
                 "unit_of_measurement": "%"
+            },
+            {
+                "capabilities": {},
+                "config_entry_id": null,
+                "device_class": "temperature",
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.mi_t_582d34352f02",
+                "icon": null,
+                "name": "Temp Bagno Mansarda",
+                "original_icon": null,
+                "original_name": "mi t_582D34352F02",
+                "platform": "mitemp_bt",
+                "supported_features": 0,
+                "unique_id": "t_582D34352F02",
+                "unit_of_measurement": "\u00b0C"
+            },
+            {
+                "capabilities": {},
+                "config_entry_id": null,
+                "device_class": "humidity",
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.mi_h_582d34352f02",
+                "icon": null,
+                "name": "Umid Bagno Mansarda",
+                "original_icon": null,
+                "original_name": "mi h_582D34352F02",
+                "platform": "mitemp_bt",
+                "supported_features": 0,
+                "unique_id": "h_582D34352F02",
+                "unit_of_measurement": "%"
+            },
+            {
+                "capabilities": {},
+                "config_entry_id": null,
+                "device_class": "battery",
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.mi_batt_582d34352f02",
+                "icon": null,
+                "name": null,
+                "original_icon": null,
+                "original_name": "mi batt_582D34352F02",
+                "platform": "mitemp_bt",
+                "supported_features": 0,
+                "unique_id": "batt_582D34352F02",
+                "unit_of_measurement": "%"
+            },
+            {
+                "capabilities": {},
+                "config_entry_id": null,
+                "device_class": "temperature",
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.mi_t_582d34362f78",
+                "icon": null,
+                "name": "Temp Ingresso",
+                "original_icon": null,
+                "original_name": "mi t_582D34362F78",
+                "platform": "mitemp_bt",
+                "supported_features": 0,
+                "unique_id": "t_582D34362F78",
+                "unit_of_measurement": "\u00b0C"
+            },
+            {
+                "capabilities": {},
+                "config_entry_id": null,
+                "device_class": "humidity",
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.mi_h_582d34362f78",
+                "icon": null,
+                "name": "Umid Ingresso",
+                "original_icon": null,
+                "original_name": "mi h_582D34362F78",
+                "platform": "mitemp_bt",
+                "supported_features": 0,
+                "unique_id": "h_582D34362F78",
+                "unit_of_measurement": "%"
+            },
+            {
+                "capabilities": {},
+                "config_entry_id": null,
+                "device_class": "battery",
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "sensor.mi_batt_582d34362f78",
+                "icon": null,
+                "name": null,
+                "original_icon": null,
+                "original_name": "mi batt_582D34362F78",
+                "platform": "mitemp_bt",
+                "supported_features": 0,
+                "unique_id": "batt_582D34362F78",
+                "unit_of_measurement": "%"
+            },
+            {
+                "capabilities": {},
+                "config_entry_id": null,
+                "device_class": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "automation.umidita_dreizel",
+                "icon": null,
+                "name": null,
+                "original_icon": null,
+                "original_name": "Umidit\u00e0 Dreizel",
+                "platform": "automation",
+                "supported_features": 0,
+                "unique_id": "1588440618312",
+                "unit_of_measurement": null
+            },
+            {
+                "capabilities": null,
+                "config_entry_id": null,
+                "device_class": null,
+                "device_id": null,
+                "disabled_by": null,
+                "entity_id": "automation.nuovo_video",
+                "icon": null,
+                "name": null,
+                "original_icon": null,
+                "original_name": "Nuovo video da cam",
+                "platform": "automation",
+                "supported_features": 0,
+                "unique_id": "1588445779878",
+                "unit_of_measurement": null
             }
         ]
     },

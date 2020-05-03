@@ -1,7 +1,45 @@
 {
     "data": [
         {
-            "last_seen": "2020-05-01T21:15:57.009364+00:00",
+            "last_seen": "2020-05-03T14:03:46.396634+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Umidit\u00e0 Dreizel",
+                    "id": "1588440618312",
+                    "last_triggered": "2020-05-03T13:54:26.909325+00:00"
+                },
+                "context": {
+                    "id": "7ee0b7a4055e48fb93c2db0c9b46e47b",
+                    "parent_id": "92e9d44e094e48d387a83c0876b84cbd",
+                    "user_id": null
+                },
+                "entity_id": "automation.umidita_dreizel",
+                "last_changed": "2020-05-03T13:53:25.597043+00:00",
+                "last_updated": "2020-05-03T13:54:26.909863+00:00",
+                "state": "on"
+            }
+        },
+        {
+            "last_seen": "2020-05-03T14:03:46.396634+00:00",
+            "state": {
+                "attributes": {
+                    "friendly_name": "Nuovo video da cam",
+                    "id": "1588445779878",
+                    "last_triggered": null
+                },
+                "context": {
+                    "id": "a515021c24844e92aae511ba25e0b7bc",
+                    "parent_id": null,
+                    "user_id": null
+                },
+                "entity_id": "automation.nuovo_video",
+                "last_changed": "2020-05-03T13:53:25.598846+00:00",
+                "last_updated": "2020-05-03T13:53:25.598846+00:00",
+                "state": "off"
+            }
+        },
+        {
+            "last_seen": "2020-05-03T14:03:46.396634+00:00",
             "state": {
                 "attributes": {
                     "editable": true,
@@ -10,50 +48,50 @@
                     "user_id": "58096674985d4a0c8818edd3a29d6159"
                 },
                 "context": {
-                    "id": "2d841228398042c0a76d4b6c352adb25",
+                    "id": "04c242ed4a30466aaad403c0cafafd6c",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "person.antonello",
-                "last_changed": "2020-05-01T20:45:32.494423+00:00",
-                "last_updated": "2020-05-01T20:45:55.370491+00:00",
+                "last_changed": "2020-05-03T13:53:25.600053+00:00",
+                "last_updated": "2020-05-03T13:53:52.372691+00:00",
                 "state": "unknown"
             }
         },
         {
-            "last_seen": "2020-05-01T21:15:57.009364+00:00",
+            "last_seen": "2020-05-03T14:03:46.396634+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "ABB Produzione",
                     "unit_of_measurement": "W"
                 },
                 "context": {
-                    "id": "500977f02e3745f88975f43e473585e4",
+                    "id": "0ddfc254bd674558b14613fa30f1cb76",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "sensor.abb_produzione",
-                "last_changed": "2020-05-01T20:45:32.895017+00:00",
-                "last_updated": "2020-05-01T20:45:32.895017+00:00",
-                "state": "unavailable"
+                "last_changed": "2020-05-03T14:03:14.032346+00:00",
+                "last_updated": "2020-05-03T14:03:14.032346+00:00",
+                "state": "2199"
             }
         },
         {
-            "last_seen": "2020-05-01T21:15:57.009364+00:00",
+            "last_seen": "2020-05-03T14:03:46.396634+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "ABB Tensione",
                     "unit_of_measurement": "V"
                 },
                 "context": {
-                    "id": "c7ac13c6e71b4b98b50503177daab986",
+                    "id": "8f95a17e40de46498d6db84460bb60ab",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "sensor.abb_tensione",
-                "last_changed": "2020-05-01T20:45:32.896166+00:00",
-                "last_updated": "2020-05-01T20:45:32.896166+00:00",
-                "state": "unavailable"
+                "last_changed": "2020-05-03T14:02:12.055865+00:00",
+                "last_updated": "2020-05-03T14:02:12.055865+00:00",
+                "state": "232"
             }
         },
         {

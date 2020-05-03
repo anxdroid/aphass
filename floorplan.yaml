@@ -1,5 +1,5 @@
       name: Villa Topa
-      image: /local/custom_ui/floorplan/Casa.svg
+      image: /local/custom_ui/floorplan/CasaV2.svg
       stylesheet: /local/custom_ui/floorplan/floorplan.css
       
       # These options are optional
@@ -13,6 +13,10 @@
 
       groups:
 
+        - name: Camera Images
+          entities:
+            -  camera.onvif_camera
+          camera_image_template: '${entity.attributes.entity_picture}'  
         - name: Sensors
           entities:
             -  sensor.mi_t_a4c1380ae1e2
@@ -21,6 +25,9 @@
             -  sensor.mi_t_e72e00b1c880
             -  sensor.mi_t_e72e00d2bc9f
             -  sensor.disimpegno_temperatura
+            -  sensor.mi_t_582d34352e68
+            -  sensor.mi_t_582d34352f02
+            -  climate.melcloud_mansarda_208372
           text_template: '${entity.state ? entity.state : "--"}'
           # An example of rounding up a number, i.e. a temperature of 90.1 becomes 91
           #text_template: '${entity.state ? Math.ceil(entity.state) : "undefined"}'  

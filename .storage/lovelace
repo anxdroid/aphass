@@ -18,32 +18,6 @@
                     "cards": [
                         {
                             "entities": [
-                                "switch.04564850840d8e9bb04b",
-                                "switch.20856001cc50e3d2a7d9"
-                            ],
-                            "show_header_toggle": false,
-                            "title": "Prese",
-                            "type": "entities"
-                        },
-                        {
-                            "entity": "weather.casa",
-                            "type": "weather-forecast"
-                        },
-                        {
-                            "entity": "climate.melcloud_mansarda_208372",
-                            "name": "Condizionatore",
-                            "type": "entity"
-                        },
-                        {
-                            "aspect_ratio": "0%",
-                            "camera_image": "camera.onvif_camera",
-                            "entities": [],
-                            "image": "https://demo.home-assistant.io/stub_config/kitchen.png",
-                            "title": "Ingresso",
-                            "type": "picture-glance"
-                        },
-                        {
-                            "entities": [
                                 {
                                     "entity": "sensor.disimpegno_temperatura",
                                     "name": "Disimpegno"
@@ -51,10 +25,6 @@
                                 {
                                     "entity": "sensor.mi_t_582d34352e68",
                                     "name": "Mansarda"
-                                },
-                                {
-                                    "entity": "sensor.mi_t_80eaca88f922",
-                                    "name": "Dreizel"
                                 },
                                 {
                                     "entity": "sensor.mi_t_e72e00b1c880",
@@ -66,7 +36,7 @@
                                 },
                                 {
                                     "entity": "sensor.mi_t_a4c1380ae1e2",
-                                    "name": "Ingresso"
+                                    "name": "Terrazzo"
                                 },
                                 {
                                     "entity": "sensor.mi_t_a4c138588693",
@@ -75,11 +45,17 @@
                                 {
                                     "entity": "sensor.mi_t_a4c1381a39b2",
                                     "name": "Sala Pranzo"
+                                },
+                                {
+                                    "entity": "sensor.mi_t_582d34352f02",
+                                    "name": "Bagno Mansarda"
+                                },
+                                {
+                                    "entity": "sensor.mi_t_582d34362f78",
+                                    "name": "Ingresso"
                                 }
                             ],
-                            "hours_to_show": 24,
-                            "refresh_interval": 0,
-                            "type": "history-graph"
+                            "type": "custom:mini-graph-card"
                         },
                         {
                             "entities": [
@@ -90,16 +66,113 @@
                                 {
                                     "entity": "sensor.termo_current_consumption",
                                     "name": "TD"
+                                },
+                                {
+                                    "entity": "sensor.cdz_current_consumption",
+                                    "name": "CDZ"
                                 }
                             ],
                             "hours_to_show": 24,
                             "refresh_interval": 0,
                             "title": "Produzione vs Consumo",
                             "type": "history-graph"
+                        },
+                        {
+                            "entity": "climate.melcloud_mansarda_208372",
+                            "name": "Condizionatore Mansarda",
+                            "type": "thermostat"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        "sensor.mi_m_80eaca88f922"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "blue",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.mi_l_80eaca88f922"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "#e74c3c",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.mi_t_80eaca88f922"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "var(--accent-color)",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "aspect_ratio": "0%",
+                            "camera_image": "camera.onvif_camera",
+                            "entities": [],
+                            "title": "Terrazzo Ingresso",
+                            "type": "picture-glance"
+                        },
+                        {
+                            "entities": [
+                                {
+                                    "entity": "sensor.carica_ups_salotto"
+                                },
+                                {
+                                    "entity": "binary_sensor.stato_ups_salotto"
+                                }
+                            ],
+                            "title": "Carica UPS",
+                            "type": "entities"
                         }
                     ],
                     "path": "default_view",
                     "title": "Home"
+                },
+                {
+                    "badges": [],
+                    "cards": [
+                        {
+                            "entities": [
+                                {
+                                    "color": "yellow",
+                                    "entity": "sensor.abb_produzione",
+                                    "name": "Produzione",
+                                    "points_per_hour": 12
+                                },
+                                {
+                                    "color": "blue",
+                                    "entity": "sensor.termo_current_consumption",
+                                    "name": "TD",
+                                    "points_per_hour": 12,
+                                    "smoothing": true
+                                },
+                                {
+                                    "color": "red",
+                                    "entity": "sensor.cdz_current_consumption",
+                                    "name": "CDZ",
+                                    "points_per_hour": 12,
+                                    "smoothing": true
+                                }
+                            ],
+                            "icon": "mdi:solar-power",
+                            "type": "custom:mini-graph-card"
+                        },
+                        {
+                            "entity": "weather.casa",
+                            "type": "weather-forecast"
+                        }
+                    ],
+                    "path": "test",
+                    "title": "Test"
                 }
             ]
         }

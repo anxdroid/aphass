@@ -1,1 +1,29 @@
-[]
+- id: '1588440618312'
+  alias: Umidità Dreizel
+  description: ''
+  trigger:
+  - below: '15'
+    entity_id: sensor.mi_m_80eaca88f922
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      filename: /tmp/snapshot.jpg
+    entity_id: camera.onvif_camera
+    service: camera.snapshot
+  - data:
+      message: 'Umidità Dreizel: {{ states(''sensor.mi_m_80eaca88f922'') }}%'
+    service: telegram_bot.send_message
+- id: '1588445779878'
+  alias: Nuovo video da cam
+  description: ''
+  trigger:
+  - event_data:
+      event_type: created
+    event_type: folder_watcher
+    platform: event
+  condition: []
+  action:
+  - data:
+      file: '{{ trigger.event.data.path }}'
+    service: telegram_bot.send_video
