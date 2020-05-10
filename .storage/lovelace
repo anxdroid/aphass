@@ -55,6 +55,7 @@
                                     "name": "Ingresso"
                                 }
                             ],
+                            "hours_to_show": 48,
                             "type": "custom:mini-graph-card"
                         },
                         {
@@ -72,7 +73,7 @@
                                     "name": "CDZ"
                                 }
                             ],
-                            "hours_to_show": 24,
+                            "hours_to_show": 48,
                             "refresh_interval": 0,
                             "title": "Produzione vs Consumo",
                             "type": "history-graph"
@@ -98,7 +99,7 @@
                                         "sensor.mi_l_80eaca88f922"
                                     ],
                                     "font_size": 75,
-                                    "line_color": "#e74c3c",
+                                    "line_color": "yellow",
                                     "line_width": 8,
                                     "type": "custom:mini-graph-card"
                                 },
@@ -107,7 +108,7 @@
                                         "sensor.mi_t_80eaca88f922"
                                     ],
                                     "font_size": 75,
-                                    "line_color": "var(--accent-color)",
+                                    "line_color": "red",
                                     "line_width": 8,
                                     "type": "custom:mini-graph-card"
                                 }
@@ -132,6 +133,102 @@
                             ],
                             "title": "Carica UPS",
                             "type": "entities"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        "sensor.mi_m_80eaca891f00"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "blue",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.mi_l_80eaca891f00"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "yellow",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.mi_t_80eaca891f00"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "red",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        "sensor.mi_m_80eaca891ce9"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "blue",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.mi_l_80eaca891ce9"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "yellow",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.mi_t_80eaca891ce9"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "red",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "type": "horizontal-stack"
+                        },
+                        {
+                            "cards": [
+                                {
+                                    "entities": [
+                                        "sensor.mi_m_80eaca891efd"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "blue",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.mi_l_80eaca891efd"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "yellow",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                },
+                                {
+                                    "entities": [
+                                        "sensor.mi_t_80eaca891efd"
+                                    ],
+                                    "font_size": 75,
+                                    "line_color": "red",
+                                    "line_width": 8,
+                                    "type": "custom:mini-graph-card"
+                                }
+                            ],
+                            "type": "horizontal-stack"
                         }
                     ],
                     "path": "default_view",

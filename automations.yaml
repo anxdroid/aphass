@@ -14,16 +14,17 @@
   - data:
       message: 'Umidità Dreizel: {{ states(''sensor.mi_m_80eaca88f922'') }}%'
     service: telegram_bot.send_message
-- id: '1588445779878'
-  alias: Nuovo video da cam
+- id: '1588515028645'
+  alias: Blackout
   description: ''
   trigger:
-  - event_data:
-      event_type: created
-    event_type: folder_watcher
-    platform: event
+  - entity_id: binary_sensor.stato_ups_salotto
+    from: 'on'
+    platform: state
+    to: 'off'
   condition: []
   action:
   - data:
-      file: '{{ trigger.event.data.path }}'
-    service: telegram_bot.send_video
+      message: 'Stato linea elettrica: {{ states(''binary_sensor.stato_ups_salotto'')
+        }}'
+    service: telegram_bot.send_message

@@ -1,45 +1,45 @@
 {
     "data": [
         {
-            "last_seen": "2020-05-03T14:03:46.396634+00:00",
+            "last_seen": "2020-05-10T16:57:12.329413+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "Umidit\u00e0 Dreizel",
                     "id": "1588440618312",
-                    "last_triggered": "2020-05-03T13:54:26.909325+00:00"
+                    "last_triggered": "2020-05-10T14:57:58.990166+00:00"
                 },
                 "context": {
-                    "id": "7ee0b7a4055e48fb93c2db0c9b46e47b",
-                    "parent_id": "92e9d44e094e48d387a83c0876b84cbd",
+                    "id": "97aed53b9a5a49b7b0eb578b999a5f2c",
+                    "parent_id": "23c5844bf1e94cc380ac4a73519a9a29",
                     "user_id": null
                 },
                 "entity_id": "automation.umidita_dreizel",
-                "last_changed": "2020-05-03T13:53:25.597043+00:00",
-                "last_updated": "2020-05-03T13:54:26.909863+00:00",
+                "last_changed": "2020-05-10T14:56:57.311139+00:00",
+                "last_updated": "2020-05-10T14:57:58.990563+00:00",
                 "state": "on"
             }
         },
         {
-            "last_seen": "2020-05-03T14:03:46.396634+00:00",
+            "last_seen": "2020-05-10T16:57:12.329413+00:00",
             "state": {
                 "attributes": {
-                    "friendly_name": "Nuovo video da cam",
-                    "id": "1588445779878",
-                    "last_triggered": null
+                    "friendly_name": "Blackout",
+                    "id": "1588515028645",
+                    "last_triggered": "2020-05-03T14:27:30.373912+00:00"
                 },
                 "context": {
-                    "id": "a515021c24844e92aae511ba25e0b7bc",
+                    "id": "68821dd9747b47b08fedb2beb8b2646b",
                     "parent_id": null,
                     "user_id": null
                 },
-                "entity_id": "automation.nuovo_video",
-                "last_changed": "2020-05-03T13:53:25.598846+00:00",
-                "last_updated": "2020-05-03T13:53:25.598846+00:00",
-                "state": "off"
+                "entity_id": "automation.blackout",
+                "last_changed": "2020-05-10T14:56:57.313352+00:00",
+                "last_updated": "2020-05-10T14:56:57.313352+00:00",
+                "state": "on"
             }
         },
         {
-            "last_seen": "2020-05-03T14:03:46.396634+00:00",
+            "last_seen": "2020-05-10T16:57:12.329413+00:00",
             "state": {
                 "attributes": {
                     "editable": true,
@@ -48,320 +48,50 @@
                     "user_id": "58096674985d4a0c8818edd3a29d6159"
                 },
                 "context": {
-                    "id": "04c242ed4a30466aaad403c0cafafd6c",
+                    "id": "4b9e89ef5ac34b87a87c76cf4ac5b115",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "person.antonello",
-                "last_changed": "2020-05-03T13:53:25.600053+00:00",
-                "last_updated": "2020-05-03T13:53:52.372691+00:00",
+                "last_changed": "2020-05-10T14:56:57.314880+00:00",
+                "last_updated": "2020-05-10T14:57:24.396310+00:00",
                 "state": "unknown"
             }
         },
         {
-            "last_seen": "2020-05-03T14:03:46.396634+00:00",
+            "last_seen": "2020-05-10T16:57:12.329413+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "ABB Produzione",
                     "unit_of_measurement": "W"
                 },
                 "context": {
-                    "id": "0ddfc254bd674558b14613fa30f1cb76",
+                    "id": "ac768094cc4740eda1ae077862a8e8e2",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "sensor.abb_produzione",
-                "last_changed": "2020-05-03T14:03:14.032346+00:00",
-                "last_updated": "2020-05-03T14:03:14.032346+00:00",
-                "state": "2199"
+                "last_changed": "2020-05-10T16:56:42.765547+00:00",
+                "last_updated": "2020-05-10T16:56:42.765547+00:00",
+                "state": "164"
             }
         },
         {
-            "last_seen": "2020-05-03T14:03:46.396634+00:00",
+            "last_seen": "2020-05-10T16:57:12.329413+00:00",
             "state": {
                 "attributes": {
                     "friendly_name": "ABB Tensione",
                     "unit_of_measurement": "V"
                 },
                 "context": {
-                    "id": "8f95a17e40de46498d6db84460bb60ab",
+                    "id": "793d748fbc94485b833604cded502884",
                     "parent_id": null,
                     "user_id": null
                 },
                 "entity_id": "sensor.abb_tensione",
-                "last_changed": "2020-05-03T14:02:12.055865+00:00",
-                "last_updated": "2020-05-03T14:02:12.055865+00:00",
-                "state": "232"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB Output",
-                    "unit_of_measurement": "W"
-                },
-                "context": {
-                    "id": "29e781f02b854e398e7acb26ac5533ee",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_output",
-                "last_changed": "2020-04-30T15:09:03.019851+00:00",
-                "last_updated": "2020-04-30T15:09:03.019851+00:00",
-                "state": "1848"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB Output Volt",
-                    "unit_of_measurement": "V"
-                },
-                "context": {
-                    "id": "6f2fe44e63c14bbfb9022393d9d9ad07",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_output_volt",
-                "last_changed": "2020-04-30T15:05:57.036592+00:00",
-                "last_updated": "2020-04-30T15:05:57.036592+00:00",
-                "state": "232"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB Output Amp",
-                    "unit_of_measurement": "A"
-                },
-                "context": {
-                    "id": "07d2201cf96242ab995cd520dd1a886d",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_output_amp",
-                "last_changed": "2020-04-30T15:01:19.466682+00:00",
-                "last_updated": "2020-04-30T15:01:19.466682+00:00",
-                "state": "0.0"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB Lato DC Output",
-                    "unit_of_measurement": "W"
-                },
-                "context": {
-                    "id": "d843ce8ae0c94457bd92d84873a6c9e2",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_lato_dc_output",
-                "last_changed": "2020-04-30T15:09:03.059552+00:00",
-                "last_updated": "2020-04-30T15:09:03.059552+00:00",
-                "state": "19070"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB Totale",
-                    "unit_of_measurement": "KWh"
-                },
-                "context": {
-                    "id": "fc039527ab8248888dc656797b506ca7",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_totale",
-                "last_changed": "2020-04-30T15:01:19.468740+00:00",
-                "last_updated": "2020-04-30T15:01:19.468740+00:00",
-                "state": "unavailable"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB String 1 Output",
-                    "unit_of_measurement": "W"
-                },
-                "context": {
-                    "id": "c31f3a52718f4601a5a232882f475ba5",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_string_1_output",
-                "last_changed": "2020-04-30T15:01:19.469755+00:00",
-                "last_updated": "2020-04-30T15:01:19.469755+00:00",
-                "state": "unavailable"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB String 1 Volt",
-                    "unit_of_measurement": "V"
-                },
-                "context": {
-                    "id": "361486a671b1402db533954ae2922306",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_string_1_volt",
-                "last_changed": "2020-04-30T15:01:19.470647+00:00",
-                "last_updated": "2020-04-30T15:01:19.470647+00:00",
-                "state": "unavailable"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB String 1 Amp",
-                    "unit_of_measurement": "A"
-                },
-                "context": {
-                    "id": "0f9bcea5bcc04d8b9a1b392f5ce69862",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_string_1_amp",
-                "last_changed": "2020-04-30T15:01:19.471507+00:00",
-                "last_updated": "2020-04-30T15:01:19.471507+00:00",
-                "state": "unavailable"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB String 2 Output",
-                    "unit_of_measurement": "W"
-                },
-                "context": {
-                    "id": "80292afff4d04efbbccfa8aaf547576f",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_string_2_output",
-                "last_changed": "2020-04-30T15:01:19.472343+00:00",
-                "last_updated": "2020-04-30T15:01:19.472343+00:00",
-                "state": "unavailable"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB String 2 Volt",
-                    "unit_of_measurement": "V"
-                },
-                "context": {
-                    "id": "81cb2cbab1ca45838a0c0a9b51aaea20",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_string_2_volt",
-                "last_changed": "2020-04-30T15:01:19.473185+00:00",
-                "last_updated": "2020-04-30T15:01:19.473185+00:00",
-                "state": "unavailable"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB String 2 Amp",
-                    "unit_of_measurement": "A"
-                },
-                "context": {
-                    "id": "eb854937a0e14b74854c64bb7ca17d41",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_string_2_amp",
-                "last_changed": "2020-04-30T15:01:19.474120+00:00",
-                "last_updated": "2020-04-30T15:01:19.474120+00:00",
-                "state": "unavailable"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB Probe Sys",
-                    "unit_of_measurement": "\u00b0C"
-                },
-                "context": {
-                    "id": "d2883345ba3848bfbf4d53e5d1eb7381",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_probe_sys",
-                "last_changed": "2020-04-30T15:01:19.475038+00:00",
-                "last_updated": "2020-04-30T15:01:19.475038+00:00",
-                "state": "0.0"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB Probe AC",
-                    "unit_of_measurement": "\u00b0C"
-                },
-                "context": {
-                    "id": "6395531d57734dad8ee67388933cadc6",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_probe_ac",
-                "last_changed": "2020-04-30T15:01:19.475894+00:00",
-                "last_updated": "2020-04-30T15:01:19.475894+00:00",
-                "state": "-3276.8"
-            }
-        },
-        {
-            "last_seen": "2020-04-30T15:09:12.865181+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "ABB Probe DC",
-                    "unit_of_measurement": "\u00b0C"
-                },
-                "context": {
-                    "id": "731b33aaa9b4450a92103b5feeab0fdc",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.abb_probe_dc",
-                "last_changed": "2020-04-30T15:09:03.218243+00:00",
-                "last_updated": "2020-04-30T15:09:03.218243+00:00",
-                "state": "46.9"
-            }
-        },
-        {
-            "last_seen": "2020-04-27T10:06:42.202161+00:00",
-            "state": {
-                "attributes": {
-                    "friendly_name": "Produzione Istantanea",
-                    "unit_of_measurement": "kW"
-                },
-                "context": {
-                    "id": "7442eb77f75d424488ffdbac8980310d",
-                    "parent_id": null,
-                    "user_id": null
-                },
-                "entity_id": "sensor.produzione_istantanea",
-                "last_changed": "2020-04-27T08:20:41.458445+00:00",
-                "last_updated": "2020-04-27T08:20:41.458445+00:00",
-                "state": "unavailable"
+                "last_changed": "2020-05-10T16:56:42.900025+00:00",
+                "last_updated": "2020-05-10T16:56:42.900025+00:00",
+                "state": "229"
             }
         }
     ],

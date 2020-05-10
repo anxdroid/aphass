@@ -1,6 +1,21 @@
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
+history:
+  exclude:
+    domains:
+      - automation
+      - weblink
+      - updater
+      - media_player
+    entities:
+      - sensor.last_boot
+      - sensor.date
+  include:
+    domains:
+      - sensor
+      - switch
+      
 
 frontend:
   extra_html_url:
@@ -113,15 +128,15 @@ climate:
     password: Thejedi2016
 
 binary_sensor:
+  - platform: rest
+    resource: http://192.168.1.3/apc.php
+    name: stato_ups_salotto
+    value_template: '{{ value_json.status }}'
   - platform: mqtt
     state_topic: dummy/floorplan/sensor
     name: Floorplan
   - platform: template
     sensors:
-      stato_ups_salotto:
-        friendly_name: "Stato UPS"
-        device_class: power
-        value_template: '{{ states.sensor.apc.attributes["status"] }}'
       bt_stuck:
         friendly_name: "BT"
         value_template: >-
@@ -146,7 +161,6 @@ sensor:
     json_attributes:
       - "bcharge"
       - "timeleft"
-      - "status"
     scan_interval: 300
   - platform: rest
     resource: http://localhost/bticino.php
